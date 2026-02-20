@@ -1,0 +1,16 @@
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ background-color: black;
+ color: white;
+}
+
+/* .container{
+
+    background-color: black;
+    color: white;
+    padding-top: 10px;
+    padding-left: 10px;
+    border-radius: 40px;
+} */
