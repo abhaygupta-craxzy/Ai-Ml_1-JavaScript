@@ -10,32 +10,48 @@
 <body>
 
     <script type="text/javascript">
-        var a = 10;
-        var b = 20;
-        var linebreak = "<br/>";
+        // var a = 10;
+        // var b = 20;
+        // var linebreak = "<br/>";
 
-        document.write("(a < b) => " + (a < b) + linebreak);
-        // result = (a < b);
-        // document.write("Result is: " + result);
-        // document.write(linebreak);
-        document.write("(a > b) => " + (a > b) + linebreak);
-        document.write("(a <= b) => " + (a <= b) + linebreak);
-        document.write("(a >= b) => " + (a >= b) + linebreak);
-        document.write("(a != b) => " + (a != b) + linebreak);
-        document.write("(a == b) => " + (a == b) + linebreak);
+        // document.write("(a < b) => " + (a < b) + linebreak);
+        // // result = (a < b);
+        // // document.write("Result is: " + result);
+        // // document.write(linebreak);
+        // document.write("(a > b) => " + (a > b) + linebreak);
+        // document.write("(a <= b) => " + (a <= b) + linebreak);
+        // document.write("(a >= b) => " + (a >= b) + linebreak);
+        // document.write("(a != b) => " + (a != b) + linebreak);
+
+
+        // document.write("(a == b) => " + (a == b) + linebreak);
         
-        document.write("(a === b) => " + (a === b) + linebreak);
+        // document.write("(a === b) => " + (a === b) + linebreak);
 
 
 
-        /////-----loops in js-----/////
-        var count;
-        document.write("starting loop" + linebreak);
-        for (count = 0; count < 10; count++) {
-            document.write("count is: " + count + linebreak);
-        }
+        // /////-----loops in js-----/////
+        // var count;
+        // document.write("starting loop" + linebreak);
+        // for (count = 0; count < 10; count++) {
+        //     document.write("count is: " + count + linebreak);
+        // }
      
-        document.write("loop ended" + linebreak);
+        // document.write("loop ended" + linebreak);
+
+
+
+        ////-----For IN loop -----/////
+
+        const person = {
+            name: "Abhay",
+            age: 21,
+            city: "Delhi"
+        };
+
+        for (let key in person) {
+          console.log( "person details : " + key + ": " + person[key]);
+        }
         
     </script>
 </body>
