@@ -54,6 +54,7 @@ else{
 }
 
 let a = 100, b = 13 , c = 10;
+
 var linebreak = "<br>";
 document.write("a + b + c = " + (a + b + c) + "<br>");
 
@@ -62,6 +63,10 @@ result = a + b + c;
 document.write("The sum of " + a + " , " + b + " and " + c + " is: " + result);
 document.write(linebreak);
 
+
+if( a == b){
+    console.log("a and b are equal; This is equal to operator");
+}
 
 
 
