@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="myFunction()">Try it</button>
+    
+    <script>
+        
+        var grade = 'A';
+
+    function myFunction(){
+       alert("Hello World!")
+       }
+
+        document.write("Entering switch block <br/>");
+
+
+        switch(grade){
+            case 'A' : document.write("Good job <br/>");
+            break;
+            case 'B' : document.write("Pretty job <br/>");
+            break;
+            case 'C' : document.write("Passed <br/>");
+            break;
+            case 'D' : document.write("Not as good <br/>");
+            break;
+           
+            default : document.write("Failed");
+        }
+       document.write("Switch loop ended");
+    </script>
+</body>
+</html>

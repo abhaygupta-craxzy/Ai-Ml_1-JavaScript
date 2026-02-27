@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>click the following button to call the function</p>
+
+    <form >
+        <input type="button" onclick="sayHello('Zara',7)" value = "Say Hello">
+    </form>
+
+
+
+    <script type="text/javascript">
+      function sayHello(name,age){
+        document.write(name + " is " + age + " years old. ");
+      }
+
+      let res = mul(12,30);
+
+      function mul(x,y){
+        return x * y;
+      }
+
+      document.write(res);
+
+    </script>
+</body>
+</html>
