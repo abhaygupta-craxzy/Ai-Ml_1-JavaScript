@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            background-color: black;
+            color: white;
+        }
+
+        button{
+            color: aqua;
+        }
+    </style>
 </head>
 <body>
 
     <p>click the following button to call the function</p>
 
     <form >
-        <input type="button" onclick="sayHello('Zara',7)" value = "Say Hello">
+        <input type="button" onclick="sayHello('Zara',7)" value = "Say Hello" >
     </form>
 
 
@@ -19,13 +29,29 @@
         document.write(name + " is " + age + " years old. ");
       }
 
-      let res = mul(12,30);
+    //   let res = mul(12,30);
 
-      function mul(x,y){
-        return x * y;
-      }
+    //   function mul(x,y){
+    //     return x * y;
+    //   }
 
-      document.write(res);
+    //   document.write(res);
+
+
+    //---------normal function------------//
+        function add(a,b){
+        console.log(a+b);
+    } 
+    add(10,20);
+
+    //----------arrow function-------------//
+    var add2 = (a,b) => {
+        console.log(a+b);
+    }
+    add2(102,20);
+
+    var add3 = (a,b) => console.log(a+b);
+   add3(30,20);
 
     </script>
 </body>
