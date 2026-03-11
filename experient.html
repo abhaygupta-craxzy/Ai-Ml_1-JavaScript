@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Student Result Calculator</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#4facfe,#00f2fe);
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:10px;
+width:400px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+h2{
+margin-bottom:20px;
+}
+
+input{
+width:90%;
+padding:10px;
+margin:8px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+button{
+margin-top:10px;
+padding:10px 20px;
+border:none;
+background:#4facfe;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#2c82e0;
+}
+
+#marksInputs{
+margin-top:10px;
+}
+
+.result{
+margin-top:20px;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Student Result Calculator</h2>
+
+<input type="number" id="subjects" placeholder="Enter number of subjects">
+
+<br>
+
+<button onclick="createInputs()">Create Subject Fields</button>
+
+<div id="marksInputs"></div>
+
+<button onclick="calculate()">Calculate Result</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+function createInputs(){
+
+let n = document.getElementById("subjects").value
+let container = document.getElementById("marksInputs")
+
+container.innerHTML=""
+
+for(let i=1;i<=n;i++){
+
+container.innerHTML += 
+`<input type="number" class="marks" placeholder="Marks for Subject ${i}">`
+
+}
+
+}
+
+function calculate(){
+
+let marks = document.querySelectorAll(".marks")
+
+let total=0
+
+marks.forEach(function(input){
+
+total += Number(input.value)
+
+})
+
+let average = total / marks.length
+
+let grade
+let result
+
+if(average >= 90){
+grade="A"
+}
+else if(average >= 75){
+grade="B"
+}
+else if(average >= 50){
+grade="C"
+}
+else{
+grade="D"
+}
+
+if(average >= 40){
+result="PASS"
+}
+else{
+result="FAIL"
+}
+
+document.getElementById("result").innerHTML =
+`
+Total Marks: ${total} <br>
+Average Marks: ${average.toFixed(2)} <br>
+Grade: ${grade} <br>
+Result: ${result}
+`
+
+}
+
+</script>
+
+</body>
+</html>
