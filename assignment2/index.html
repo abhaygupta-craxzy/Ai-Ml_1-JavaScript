@@ -9,22 +9,30 @@
 </head>
 
 <body>
+    <div class="main-container">
+        <div class="Card">
+            <h1>Employee Details</h1>
+            <form action="#">
+                <input type="text" id="name" placeholder="Employee Name">
+                <input type="text" id="id" placeholder="Employee ID">
+                <input type="number" id="salary" placeholder="Salary">
+                <input type="text" id="dept" placeholder="Department">
 
-    <div class="Card">
-    <h1 >Employee Details</h1>
-    <form action="#">
-        <input  type="text" id="name" placeholder="Employee Name">
-        <input type="text" id="id" placeholder="Employee ID">
-        <input type="number" id="salary" placeholder="Salary">
-        <input type="text" id="dept" placeholder="Department">
-
-        <button type="button" class="btn" onclick="addEmployee()">Add Employee</button>
-        <button type="button" class="btn" onclick="displayEmployees()">Display Employees</button>
-        <button type="button" class="btn" onclick="averageSalary()">Average Salary</button>
-        <button type="button" class="btn" onclick="CountDepartments()">Count Departments</button>
-    </form>
+                <button type="button" class="btn" onclick="addEmployee()">Add Employee</button>
+                <button type="button" class="btn" onclick="displayEmployees()">Display Employees</button>
+                <button type="button" class="btn" onclick="averageSalary()">Average Salary</button>
+                <button type="button" class="btn" onclick="filterSalary()">Salary > ₹50K</button>
+                <button type="button" class="btn" onclick="countByDepartment()">Count Departments</button>
+                <button type="button" class="btn" onclick="totalSalary()">Total Salary</button>
+            </form>
+        </div>
+        <div id="output">
+            <div class="empty-state">
+                No data yet<br>
+                <span>Add employees to see results here</span>
+            </div>
+        </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 
