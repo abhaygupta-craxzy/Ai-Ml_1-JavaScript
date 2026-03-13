@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Employee Details</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0b1513, #0f2a25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+
+        .Card {
+            margin: 10px;
+            background: #dc9c9c;
+            padding: 20px 35px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            width: 420px;
+            text-align: center;
+        }
+
+        .Card h1 {
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+       
+        /* form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        } */
+
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            background: #f1f1f1;
+        }
+
+        input:focus {
+            border-color: #4cafa0;
+            outline: none;
+            box-shadow: 0 0 5px #4cafa0;
+        }
+
+        input:hover {
+            border: 2px solid #4cafa0;
+            transform: scale(1.02);
+            box-shadow: 0 0 8px rgba(76, 175, 160, 0.5);
+        }
+
+
+        .btn {
+            width: 100%;
+            background-color: #4cafa0;
+            color: white;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #3a9487;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+     
+        #output {
+            width: 420px;
+            margin-top: 4px;
+            padding: 20px;
+            background: #e1e6e6;
+            border-radius: 12px;
+            color: black;
+            font-size: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            max-height: 260px;
+            overflow-y: auto;
+
+        }
+
+
+
+        .emp-card {
+            background: #c7f6ed;
+            padding: 14px;
+            margin-bottom: 12px;
+            border-radius: 10px;
+            border-left: 5px solid #4cafa0;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .emp-card p {
+            margin: 6px 0;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="Card">
+            <h1>Employee Details</h1>
+            <form action="#">
+                <input type="text" id="name" placeholder="Employee Name">
+                <input type="text" id="id" placeholder="Employee ID">
+                <input type="number" id="salary" placeholder="Salary">
+                <input type="text" id="dept" placeholder="Department">
+
+                <button type="button" class="btn" onclick="addEmployee()">Add Employee</button>
+                <button type="button" class="btn" onclick="displayEmployees()">Display Employees</button>
+                <button type="button" class="btn" onclick="averageSalary()">Average Salary</button>
+                <button type="button" class="btn" onclick="filterSalary()">Salary > ₹50K</button>
+                <button type="button" class="btn" onclick="countByDepartment()">Count Departments</button>
+                <button type="button" class="btn" onclick="totalSalary()">Total Salary</button>
+            </form>
+        </div>
+        <div id="output">
+            <div class="empty-state">
+                No data yet<br>
+                <span>Add employees to see results here</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let employees = [];
+
+        function addEmployee() {
+            let name = document.getElementById("name").value;
+            let id = document.getElementById("id").value;
+            let salary = parseFloat(document.getElementById("salary").value);
+            let department = document.getElementById("dept").value;
+
+
+            // employees.push({ name, empid, salary, department });
+
+            if (name === "" || id === "" || isNaN(salary) || department === "") {
+                alert("Please fill all the fields properly.");
+                return;
+            }
+            // displayEmployees();
+
+
+            let employee = {
+                name: name,
+                id: id,
+                salary: salary,
+                department: department
+            };
+
+            employees.push(employee);
+            alert("Employee added successfully!");
+
+            document.getElementById("name").value = "";
+            document.getElementById("id").value = "";
+            document.getElementById("salary").value = "";
+            document.getElementById("dept").value = "";
+        }
+
+
+
+        // function displayEmployees() {
+        //    let output = "Employee List:<br><hr>";
+        //     employees.forEach((emp) => {
+        //         output += `
+        //         Name: ${emp.name} <br>
+        //         Employee ID: ${emp.id} <br>
+        //         Salary: ₹${emp.salary} <br>
+        //         Department: ${emp.department} <br><hr>
+        //         `;
+        //     });
+        //     document.getElementById("output").innerHTML = output;
+        // }
+
+
+
+        function displayEmployees() {
+            let output = document.getElementById("output");
+
+            if (employees.length === 0) {
+                output.innerHTML = "No employees added yet.";
+                return;
+            }
+
+            let html = `<h3 style="margin-bottom:15px;">Employee List</h3>`;
+
+            employees.forEach(emp => {
+                html += `
+        <div class="emp-card">
+            <p><b>Name:</b> ${emp.name}</p>
+            <p><b>ID:</b> ${emp.id}</p>
+            <p><b>Salary:</b> ₹${emp.salary.toLocaleString()}</p>
+            <p><b>Department:</b> ${emp.department}</p>
+        </div>
+        `;
+            });
+
+            output.innerHTML = html;
+        }
+
+
+
+
+
+
+
+
+        // function filterSalary(){
+        //     let filtered = employees.filter(emp => emp.salary > 50000);
+        //     let output = "Employees with Salary greater than ₹50,000:<br><hr>";
+        //     filtered.forEach((emp) => {
+        //         output += `
+        //         Name: ${emp.name} <br>
+        //         Employee ID: ${emp.id} <br>
+        //         Salary: ₹${emp.salary} <br>
+        //         Department: ${emp.department} <br><hr>
+        //         `;
+        //     });
+        //     document.getElementById("output").innerHTML = output;
+        // }
+
+
+        function filterSalary() {
+            let output = document.getElementById("output");
+
+            let filtered = employees.filter(emp => emp.salary > 50000);
+
+            if (filtered.length === 0) {
+                output.innerHTML = "No employees with salary above ₹50,000.";
+                return;
+            }
+
+            let html = `<h3 style="margin-bottom:15px;">Employees with Salary > ₹50,000</h3>`;
+
+            filtered.forEach(emp => {
+                html += `
+        <div class="emp-card">
+            <p><b>Name:</b> ${emp.name}</p>
+            <p><b>ID:</b> ${emp.id}</p>
+            <p><b>Salary:</b> ₹${emp.salary.toLocaleString()}</p>
+            <p><b>Department:</b> ${emp.department}</p>
+        </div>
+        `;
+            });
+
+            output.innerHTML = html;
+        }
+
+
+        function totalSalary() {
+
+            let total = employees.reduce((sum, emp) => sum + emp.salary, 0);
+            document.getElementById("output").innerHTML = `Total Salary of all Employees: ₹${total}`;
+        }
+
+        function averageSalary() {
+
+            if (employees.length === 0) {
+                document.getElementById("output").innerHTML = "No employees to calculate average salary.";
+                return;
+            }
+            let average = employees.reduce((sum, emp) => sum + emp.salary, 0) / employees.length;
+            document.getElementById("output").innerHTML = `Average Salary of all Employees: ₹${average.toFixed(2)}`;
+        }
+
+        function countByDepartment() {
+
+            let deptName = prompt("Enter Department Name:");
+            if (!deptName) return;
+            let count = employees.filter(emp => emp.department.toLowerCase() === deptName.toLowerCase()).length;
+            document.getElementById("output").innerHTML = `Number of Employees in ${deptName} Department: ${count}`;
+        }
+
+
+    </script>
+</body>
+
+
+</body>
+
+</html>
