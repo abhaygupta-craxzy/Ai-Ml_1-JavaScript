@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Employee </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <h1> Employee Details</h1>
+
+  <!-- Input Card -->
+  <div class="card form-card">
+    <input type="text" id="name" placeholder="Employee Name">
+    <input type="text" id="id" placeholder="Employee ID">
+    <input type="number" id="salary" placeholder="Salary">
+    <input type="text" id="dept" placeholder="Department">
+    <button onclick="addEmployee()">Add / Update Employee</button>
+  </div>
+
+  <!-- Search -->
+  <input
+    type="text"
+    id="search"
+    placeholder="🔍 Search by name..."
+    oninput="searchEmployee()"
+    class="search"
+  >
+
+  <!-- Action Buttons -->
+  <div class="actions">
+    <button onclick="displayEmployees()">All</button>
+    <button onclick="filterSalary()">Salary > ₹50K</button>
+    <button onclick="totalSalary()">Total</button>
+    <button onclick="averageSalary()">Average</button>
+    <button onclick="countDepartment()">Count Dept</button>
+  </div>
+
+  <!-- Output -->
+  <div id="output" class="grid"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
