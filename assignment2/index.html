@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="Card">
+    <h1 >Employee Details</h1>
+    <form action="#">
+        <input  type="text" id="name" placeholder="Employee Name">
+        <input type="text" id="id" placeholder="Employee ID">
+        <input type="number" id="salary" placeholder="Salary">
+        <input type="text" id="dept" placeholder="Department">
+
+        <button type="button" class="btn" onclick="addEmployee()">Add Employee</button>
+        <button type="button" class="btn" onclick="displayEmployees()">Display Employees</button>
+        <button type="button" class="btn" onclick="averageSalary()">Average Salary</button>
+        <button type="button" class="btn" onclick="CountDepartments()">Count Departments</button>
+    </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
