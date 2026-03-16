@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+  <button onmouseover="onMouseOver()">Hover over me</button>
+  <button onmouseout="onMouseOut()">Move mouse away</button>
+  <button onmousedown="onMouseDown()">Click me</button>
+  <button onmouseup="onMouseUp()">Release mouse</button>
+  <button onmousemove="onMouseMove()">Move mouse</button>
+  <button ondblclick="changeColor()">Double click me</button>
+
+  
+    <script>
+        function onMouseOver() {
+           console.log("Mouse is over the button!");
+           document.getElementById("demo").innerHTML = "Mouse is over the button!";
+        }
+
+        function onMouseOut() {
+            console.log("Mouse is not over the button!");
+            document.getElementById("demo").innerHTML = "Mouse is not over the button!";
+        }
+
+        function onMouseDown() {
+            console.log("Mouse button is pressed!");
+            document.getElementById("demo").innerHTML = "Mouse button is pressed!";
+        }
+
+        function onMouseUp() {
+            console.log("Mouse button is released!");
+            document.getElementById("demo").innerHTML = "Mouse button is released!";
+        }
+
+        function onMouseMove() {
+            console.log("Mouse is moving!");
+            document.getElementById("demo").innerHTML = "Mouse is moving!";
+        }
+
+
+        function changeColor() {
+            document.body.style.backgroundColor = "lightblue";
+        }
+
+        
+
+
+
+
+    </script>
+</body>
+</html>

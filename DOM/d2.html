@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+     <h1 id="myh1"  class="democlass">The element object</h1>
+     <h2 id="myh2">Another heading</h2>
+    <p id = "demo"></p>
+    <button onclick="myFunction()">Click Me</button>
+
+
+    <h4>DOM close() method</h4>
+    <button onclick="practice()">Practice</button>
+
+    <script>
+
+        // const element = document.getElementById("myh1");
+        // let text = element.getAttribute("class");
+        // document.getElementById("demo").innerHTML = text;
+     
+        // function myFunction(){
+        //     document.getElementById("myh2").setAttribute("class", "democlass");
+        //     document.getElementById("demo").innerHTML = "Class attribute changed to democlass";
+        //     document.getElementById("myh1").style.color = "red";
+        // }        
+
+        const heading = document.createElement("h3");
+        const bodytag = document.getElementByTagName("body");
+        bodytag[0].append(heading);
+        heading.innerHTML = "This is a new created heading";
+        heading.style.color = "blue";
+
+ // ----------methods to add an element to the document----------//
+
+        // 1. append()
+        // 2. node.prepend()
+        // 3. node.Before()
+        // 4. node.after()
+
+
+// ---------- HTML DOM close() method----------//
+     function practice(){
+        document.write("Hello World");
+        document.close();
+        }
+
+
+
+        
+
+
+        </script>
+    </body>
+</html>
