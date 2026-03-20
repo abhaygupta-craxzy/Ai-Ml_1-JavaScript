@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+
+    <h1>Async Programming</h1>
+     <ol>
+        <li>Promise</li>
+        <li>Async/Await</li>
+        <li>Fetch API</li>
+     </ol>
+
+    <script>
+
+        // <-- ----------promise-------------- -->
+        let promise = new Promise((resolve, reject) => {
+           let success = true; // Simulating success or failure
+           if (success) {
+               resolve("data loaded successfully!");
+           } else {
+               reject("error occurred ");
+           }
+        });
+
+        promise.then((result) => {
+            console.log(result);
+        }).catch((error) => {
+            console.error(error);
+        });
+
+        
+        // <-- ----------async/await-------------- -->
+        async function getData() {
+            try {
+                let response = await fetch("https://jsonplaceholder.typicode.com/users");
+                let data = await response.json();
+                console.log(data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+        getData();
+
+        // <-- ----------Fetch API -------------- -->
+            fetch("https://jsonplaceholder.typicode.com/posts")
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error("Error fetching posts:", error));
+                
+    </script>
+</body>
+</html>

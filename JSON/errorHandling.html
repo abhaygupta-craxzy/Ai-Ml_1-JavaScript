@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Error Handling</h1>
+    <br>
+    <h1>Local Storage</h1>
+    <p>Catch memory</p>
+    <script>
+
+        try{
+            var x = y + 1; // This will throw a ReferenceError because 'y' is not defined
+        } catch (error) {
+            console.error(error.message);
+        }
+
+
+        // <-- ---------------------Local Storage------------------ -->
+
+        localStorage.setItem("name", "Abhay");
+        localStorage.setItem("age", "20");
+        var name = localStorage.getItem("name");
+        var age = localStorage.getItem("age");
+        console.log(name); 
+        console.log(age);
+
+        // for removing
+        localStorage.removeItem("age");
+        var ageAfterRemoval = localStorage.getItem("age");
+        console.log(ageAfterRemoval); // This will print 'null'.
+
+
+        // <-- ---------Store Object -------------- -->
+
+        let user = {
+            name: "Abhay",
+            age: 20,
+            city: "Delhi"
+        };
+
+        localStorage.setItem("user", JSON.stringify(user));
+
+        // Retrieve Object
+        let data = JSON.parse(localStorage.getItem("user"));
+        console.log(data); 
+
+        
+
+
+
+
+    </script>
+</body>
+</html>
